@@ -1,6 +1,6 @@
 import { IMessageEmbed } from "../../structures/client/message/IMessageEmbed";
 import { ApplyOptions } from "@sapphire/decorators";
-import { Command, CommandOptions } from "@sapphire/framework";
+import { Command, CommandOptions, container } from "@sapphire/framework"
 import { Message } from "discord.js";
 import { ISelectMenu } from "../../structures/client/message/ISelectMenu";
 
