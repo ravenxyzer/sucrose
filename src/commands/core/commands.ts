@@ -38,13 +38,6 @@ export class CommandsCommand extends Command {
           .join(", ")
         }, 
         {
-            name: '✧ **Moderation**',
-            value: commands
-            .filter((cmd) => cmd.category === "moderation")
-            .map((cmd) => inlineCode(cmd.name))
-            .join(", ")
-        },
-        {
             name: '✧ **Utility**',
             value: commands
             .filter((cmd) => cmd.category === "utility")
