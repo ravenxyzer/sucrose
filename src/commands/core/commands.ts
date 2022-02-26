@@ -20,7 +20,8 @@ export class CommandsCommand extends Command {
     const bot = this.container.client.user;
     const panel = new MessageEmbed()
     .setTitle(`・ ✦ — ${bot.username} Commands`)
-    .setDescription(`Berikut merupakan perintah yang tersedia`)
+    .setThumbnail(bot.displayAvatarURL({dynamic: true, size: 512}))
+    .setDescription(`Berikut merupakan perintah-perintah yang tersedia`)
     .setColor('#A5D5EB')
     .addFields(
         {
