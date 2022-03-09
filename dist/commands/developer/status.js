@@ -25,8 +25,8 @@ class StatusCommand extends framework_1.Command {
             const panel = new discord_js_1.MessageEmbed()
                 .setTitle(`✿⠀Client Status`)
                 .setDescription(`**Client**: \`🔹 Online\` - \`${framework_1.container.client.ws.ping}ms\`\n**Uptime**: <t:${(uptime)}:R>\n**Database**: \`🔸 Disconnected\``)
-                .setColor('#A5D5EB')
-                .setFooter(`${bot.username} - Developed by Zarr#2072`, bot.displayAvatarURL({ dynamic: true, size: 512 }));
+                .setColor('#A5D5EB');
+            panel.setFooter({ text: `${bot.username} - Developed by Zarr#2072`, iconURL: bot.displayAvatarURL({ dynamic: true, size: 512 }) });
             const response = yield message.channel.send({ embeds: [panel] });
             return setTimeout(() => {
                 response.delete();

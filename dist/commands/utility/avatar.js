@@ -27,8 +27,8 @@ class AvatarCommand extends framework_1.Command {
                 .setTitle(`・ ✦ — ${name}'s Avatar`)
                 .setImage(user.displayAvatarURL({ dynamic: true, size: 4096 }))
                 //[Link](https://cdn.discordapp.com/avatars/${authId}/${authAv}'?size=4096)
-                .setColor('#A5D5EB')
-                .setFooter(`${user.username} - Developed by Zarr#2072`, user.displayAvatarURL({ dynamic: true, size: 512 }));
+                .setColor('#A5D5EB');
+            panel.setFooter({ text: `${user.username} - Developed by Zarr#2072`, iconURL: user.displayAvatarURL({ dynamic: true, size: 512 }) });
             return yield message.reply({ embeds: [panel] });
         });
     }

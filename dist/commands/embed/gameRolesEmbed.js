@@ -54,11 +54,9 @@ let PingRolesEmbedCommand = class PingRolesEmbedCommand extends framework_1.Comm
                 type: "SINGLE",
                 role: [GenshinRole, HonkaiRole, MobileLegendsRole, ValorantRole, MinecraftRole],
                 content: new IMessageEmbed_1.IMessageEmbed()
-                    .setAuthor(`・ ✦ — GIID GAME ROLES`)
-                    .setThumbnail(bot.displayAvatarURL({ dynamic: true, size: 512 }))
+                    .setTitle(`・ ✦ — GIID GAME ROLES`)
                     .setColor("#A5D5EB")
-                    .setDescription(`Silakan mengambil role yang anda inginkan untuk mendapatkan notifikasi sesuai dengan role yang dipilih.\n\n➭⠀ <:Genshin_Impact:910879454631452692> ・ <@&909622094814388254>\nPing untuk merekrut Party Genshin Impact\n\n➭⠀ <:Honkai_Impact:910885561181552641> ・ <@&909600627280187402>\nPing untuk pemain Honkai Impact 3rd\n\n➭⠀ <:Mobile_Legends:910879482854916097> ・ <@&909600003197132821>\nPing untuk pemain Mobile Legends : Bang Bang\n\n➭⠀ <:Valorant:910886919464943641> ・ <@&909600531431952434>\nPing untuk pemain Valorant\n\n➭⠀ <:Minecraft:910887582378901555> ・ <@&909600734956359750>\nPing untuk pemain Minecraft\n\nDimohon untuk tidak spam agar tidak terjadi error yang tidak diinginkan.\n`)
-                    .setFooter(`${bot.username} - Developed by Zarr#2072`, bot.displayAvatarURL({ dynamic: true, size: 512 })),
+                    .setDescription(`Silakan mengambil role yang anda inginkan untuk mendapatkan notifikasi sesuai dengan role yang dipilih.\n\n➭⠀ <:Genshin_Impact:910879454631452692> ・ <@&909622094814388254>\nPing untuk merekrut Party Genshin Impact\n\n➭⠀ <:Honkai_Impact:910885561181552641> ・ <@&909600627280187402>\nPing untuk pemain Honkai Impact 3rd\n\n➭⠀ <:Mobile_Legends:910879482854916097> ・ <@&909600003197132821>\nPing untuk pemain Mobile Legends : Bang Bang\n\n➭⠀ <:Valorant:910886919464943641> ・ <@&909600531431952434>\nPing untuk pemain Valorant\n\n➭⠀ <:Minecraft:910887582378901555> ・ <@&909600734956359750>\nPing untuk pemain Minecraft\n\nDimohon untuk tidak spam agar tidak terjadi error yang tidak diinginkan.\n⠀`),
                 channelId: message.channel.id,
             });
         });

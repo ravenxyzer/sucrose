@@ -24,7 +24,7 @@ export class StatusCommand extends Command {
     .setTitle(`✿⠀Client Status`)
     .setDescription(`**Client**: \`🔹 Online\` - \`${container.client.ws.ping}ms\`\n**Uptime**: <t:${(uptime)}:R>\n**Database**: \`🔸 Disconnected\``)
     .setColor('#A5D5EB')
-    .setFooter(`${bot.username} - Developed by Zarr#2072`, bot.displayAvatarURL({ dynamic: true, size: 512 }))
+    panel.setFooter({text: `${bot.username} - Developed by Zarr#2072`, iconURL: bot.displayAvatarURL({ dynamic: true, size: 512 })})
     const response = await message.channel.send({embeds: [panel]})
     return setTimeout(() => {
       response.delete()

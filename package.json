@@ -1,6 +1,6 @@
 {
   "name": "sucrose",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Discord Bot",
   "main": "index.js",
   "scripts": {
@@ -31,5 +31,6 @@
   "bugs": {
     "url": "https://github.com/ravenxyzer/sucrose/issues"
   },
-  "homepage": "https://github.com/ravenxyzer/sucrose#readme"
+  "homepage": "https://github.com/ravenxyzer/sucrose#readme",
+  "devDependencies": {}
 }

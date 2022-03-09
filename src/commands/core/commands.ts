@@ -39,6 +39,13 @@ export class CommandsCommand extends Command {
           .join(", ")
         }, 
         {
+          name: '✧ **Moderation**',
+          value: commands
+          .filter((cmd) => cmd.category === "moderation")
+          .map((cmd) => inlineCode(cmd.name))
+          .join(", ")
+      },
+        {
             name: '✧ **Utility**',
             value: commands
             .filter((cmd) => cmd.category === "utility")
@@ -46,7 +53,6 @@ export class CommandsCommand extends Command {
             .join(", ")
         },
     )
-    .setFooter(`${bot.username} - Developed by Zarr#2072`, bot.displayAvatarURL({dynamic:true, size: 512}))
 
     return await message.reply({embeds: [panel]})
   }

@@ -24,7 +24,7 @@ export class AvatarCommand extends Command {
         .setImage(user.displayAvatarURL({dynamic : true, size: 4096}))
         //[Link](https://cdn.discordapp.com/avatars/${authId}/${authAv}'?size=4096)
         .setColor('#A5D5EB')
-        .setFooter(`${user.username} - Developed by Zarr#2072`, user.displayAvatarURL({dynamic: true, size: 512}))
+        panel.setFooter({text: `${user.username} - Developed by Zarr#2072`, iconURL: user.displayAvatarURL({dynamic: true, size: 512})})
         return await message.reply({ embeds: [panel]})
     }
 }
