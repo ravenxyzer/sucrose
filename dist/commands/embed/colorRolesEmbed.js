@@ -15,60 +15,64 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const IMessageEmbed_1 = require("../../structures/client/message/IMessageEmbed");
 const decorators_1 = require("@sapphire/decorators");
 const framework_1 = require("@sapphire/framework");
-const ISelectMenu_1 = require("../../structures/client/message/ISelectMenu");
-let PingRolesEmbedCommand = class PingRolesEmbedCommand extends framework_1.Command {
+const IButton_1 = require("../../structures/client/message/IButton");
+const IMessageEmbed_1 = require("../../structures/client/message/IMessageEmbed");
+let colorRolesEmbedCommand = class colorRolesEmbedCommand extends framework_1.Command {
     messageRun(message) {
         return __awaiter(this, void 0, void 0, function* () {
             yield message.delete();
             const bot = this.container.client.user;
-            const SelectMenuManager = new ISelectMenu_1.ISelectMenu(this.container.client);
-            const Meerblau = SelectMenuManager.createRole({
-                label: "Meerblau",
+            const ButtonManager = new IButton_1.IButton(this.container.client);
+            const Meerblau = ButtonManager.createRole({
+                color: "SECONDARY",
+                label: "",
                 role: "909737734346780693",
                 emoji: "🔵",
             });
-            const Witwenlippen = SelectMenuManager.createRole({
-                label: "Witwenlippen",
+            const Witwenlippen = ButtonManager.createRole({
+                color: "SECONDARY",
+                label: "",
                 role: "909739014007963679",
                 emoji: "🔴",
             });
-            const Pandanblätter = SelectMenuManager.createRole({
-                label: "Pandanblätter",
+            const Pandanblätter = ButtonManager.createRole({
+                color: "SECONDARY",
+                label: "",
                 role: "909737967176806400",
                 emoji: "🟢",
             });
-            const UnfruchtbaresLand = SelectMenuManager.createRole({
-                label: "Unfruchtbares Land",
+            const UnfruchtbaresLand = ButtonManager.createRole({
+                color: "SECONDARY",
+                label: "",
                 role: "909738531407159326",
                 emoji: "🟡",
             });
-            const Abendsonne = SelectMenuManager.createRole({
-                label: "Abendsonne",
+            const Abendsonne = ButtonManager.createRole({
+                color: "SECONDARY",
+                label: "",
                 role: "909738728413626429",
                 emoji: "🟠",
             });
-            const Lavendel = SelectMenuManager.createRole({
-                label: "Lavendel",
+            const Lavendel = ButtonManager.createRole({
+                color: "SECONDARY",
+                label: "",
                 role: "909739425045553153",
                 emoji: "🟣",
             });
-            return SelectMenuManager.createMenus({
-                type: "SINGLE",
+            return ButtonManager.createButtons({
                 role: [Meerblau, Witwenlippen, Pandanblätter, UnfruchtbaresLand, Abendsonne, Lavendel],
                 content: new IMessageEmbed_1.IMessageEmbed()
                     .setTitle(`・ ✦ — GIID COLOR ROLES`)
                     .setColor("#A5D5EB")
                     .setDescription(`Silakan mengambil role yang anda inginkan untuk memberi warna pada _nickname_ kalian.\n\n➭⠀ 🔵 ・ <@&909737734346780693>\n\n➭⠀ 🔴 ・ <@&909739014007963679>\n\n➭⠀ 🟢 ・ <@&909737967176806400>\n\n➭⠀ 🟡 ・ <@&909738531407159326>\n\n➭⠀ 🟠 ・ <@&909738728413626429>\n\n➭⠀ 🟣 ・ <@&909739425045553153>\n\nDimohon untuk tidak spam agar tidak terjadi error yang tidak diinginkan.\n⠀`),
-                // .setFooter(`${bot.username} - Developed by Zarr#2072`, bot.displayAvatarURL({ dynamic: true, size: 512 })),
                 channelId: message.channel.id,
             });
         });
     }
 };
-PingRolesEmbedCommand = __decorate([
+colorRolesEmbedCommand = __decorate([
     (0, decorators_1.ApplyOptions)({
         name: "colorRolesEmbed",
         aliases: ['colorRole', 'colorRoles', 'colorrole', 'colorroles', 'colorrolesembed'],
@@ -78,5 +82,5 @@ PingRolesEmbedCommand = __decorate([
         enabled: true,
         requiredUserPermissions: ["ADMINISTRATOR"],
     })
-], PingRolesEmbedCommand);
-exports.default = PingRolesEmbedCommand;
+], colorRolesEmbedCommand);
+exports.default = colorRolesEmbedCommand;

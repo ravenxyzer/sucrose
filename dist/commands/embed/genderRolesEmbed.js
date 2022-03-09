@@ -15,11 +15,11 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const IMessageEmbed_1 = require("../../structures/client/message/IMessageEmbed");
 const decorators_1 = require("@sapphire/decorators");
 const framework_1 = require("@sapphire/framework");
 const IButton_1 = require("../../structures/client/message/IButton");
-let ButtonsTestCommand = class ButtonsTestCommand extends framework_1.Command {
+const IMessageEmbed_1 = require("../../structures/client/message/IMessageEmbed");
+let genderRolesEmbed = class genderRolesEmbed extends framework_1.Command {
     messageRun(message) {
         return __awaiter(this, void 0, void 0, function* () {
             yield message.delete();
@@ -48,7 +48,7 @@ let ButtonsTestCommand = class ButtonsTestCommand extends framework_1.Command {
         });
     }
 };
-ButtonsTestCommand = __decorate([
+genderRolesEmbed = __decorate([
     (0, decorators_1.ApplyOptions)({
         name: "genderRolesEmbed",
         aliases: ['genderRole', 'genderRoles', 'genderrole', 'genderroles', 'genderrolesembed'],
@@ -58,5 +58,5 @@ ButtonsTestCommand = __decorate([
         enabled: true,
         requiredUserPermissions: ["ADMINISTRATOR"],
     })
-], ButtonsTestCommand);
-exports.default = ButtonsTestCommand;
+], genderRolesEmbed);
+exports.default = genderRolesEmbed;
