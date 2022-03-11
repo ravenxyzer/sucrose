@@ -17,7 +17,7 @@ export class ReadyListener extends Listener {
       status: 'idle',
       activities: [
           {
-              name: "Genshim Impact ID",
+              name: "Genshin Impact ID",
               type: "WATCHING"
           }
       ]
