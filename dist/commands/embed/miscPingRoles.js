@@ -28,25 +28,25 @@ let MiscellaneousPingRolesCommand = class MiscellaneousPingRolesCommand extends 
             const ButtonManager = new IButton_1.IButton(this.container.client);
             const AnimangaPing = ButtonManager.createRole({
                 color: "SECONDARY",
-                label: "Animanga",
+                label: "",
                 role: "911193934053654538",
                 emoji: "🍥",
             });
             const ContentPing = ButtonManager.createRole({
                 color: "SECONDARY",
-                label: "Content",
+                label: "",
                 role: "910303931333238814",
                 emoji: "🔥",
             });
             const SpiralAbyssPing = ButtonManager.createRole({
                 color: "SECONDARY",
-                label: "Spiral Abyss",
+                label: "",
                 role: "909621805986230302",
                 emoji: "🛐",
             });
             const VtuberPing = ButtonManager.createRole({
                 color: "SECONDARY",
-                label: "V-tuber",
+                label: "",
                 role: "911837444708655194",
                 emoji: "🐇",
             });

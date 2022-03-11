@@ -47,7 +47,7 @@ export default class MainPingRolesCommand extends Command {
         panel.setFooter({text: `${bot.username} - ${Aboutme.watermark}`, iconURL: bot.displayAvatarURL({dynamic: true, size: 512})})
 
         return ButtonManager.createButtons({
-            role: [PartnerPing, GiveawayPing, ServerUpdatePing],
+            role: [GiveawayPing, PartnerPing, ServerUpdatePing],
             content: panel,
             channelId: message.channel.id,
         });

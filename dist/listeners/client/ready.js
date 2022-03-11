@@ -14,7 +14,7 @@ class ReadyListener extends framework_1.Listener {
             status: 'idle',
             activities: [
                 {
-                    name: "Genshim Impact ID",
+                    name: "Genshin Impact ID",
                     type: "WATCHING"
                 }
             ]
