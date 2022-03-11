@@ -22,21 +22,21 @@ export default class MainPingRolesCommand extends Command {
         
         const GiveawayPing = ButtonManager.createRole({
             color: "SECONDARY",
-            label: "Giveaway",
+            label: "",
             role: "910854269064843316",
             emoji: "🎉",
         });
 
         const PartnerPing = ButtonManager.createRole({
             color: "SECONDARY",
-            label: "GIID Partner",
+            label: "",
             role: "910169062510833704",
             emoji: "🤝",
         });
 
         const ServerUpdatePing = ButtonManager.createRole({
             color: "SECONDARY",
-            label: "Server Update",
+            label: "",
             role: "944916013617655850",
             emoji: "📊"
         })
