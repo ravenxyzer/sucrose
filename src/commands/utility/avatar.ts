@@ -1,5 +1,6 @@
 import { Args, Command } from '@sapphire/framework';
 import { Time } from '@sapphire/time-utilities';
+import { Aboutme } from "../../structures/client/message/IPersonal"
 import { Message, MessageEmbed, MessageActionRow } from 'discord.js';
 
 export class AvatarCommand extends Command {
@@ -24,7 +25,7 @@ export class AvatarCommand extends Command {
         .setImage(user.displayAvatarURL({dynamic : true, size: 4096}))
         //[Link](https://cdn.discordapp.com/avatars/${authId}/${authAv}'?size=4096)
         .setColor('#A5D5EB')
-        panel.setFooter({text: `${user.username} - Developed by Zarr#2072`, iconURL: user.displayAvatarURL({dynamic: true, size: 512})})
+        panel.setFooter({text: `${user.username} - ${Aboutme.watermark}`, iconURL: user.displayAvatarURL({dynamic: true, size: 512})})
         return await message.reply({ embeds: [panel]})
     }
 }

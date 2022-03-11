@@ -18,9 +18,8 @@ export default class HelpCommand extends Command {
         const panel = new MessageEmbed()
         .setTitle('・ ✦ — Sucrose Profile')
         .setThumbnail(bot.displayAvatarURL({dynamic:true, size: 512}))
-        .setDescription(`Sucrose merupakan bot official dari server **Genshin Impact ID**. Gunakan perintah \`s.commands\` atau \`s.cmds\` untuk menampilkan perintah-perintah yang tersedia lainnya.`)
+        .setDescription(`Sucrose merupakan bot official dari server **Genshin Impact ID**.\nGunakan perintah \`s.commands\` atau \`s.cmds\` untuk menampilkan perintah-perintah yang tersedia lainnya.`)
         .setColor('#A5D5EB')
-        .setFooter(`${bot.username} - Developed by Zarr#2072`, bot.displayAvatarURL({ dynamic: true, size: 512 }))
         return await message.reply({embeds: [panel]})
     }
 }

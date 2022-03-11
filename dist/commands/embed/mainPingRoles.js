@@ -17,46 +17,54 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const decorators_1 = require("@sapphire/decorators");
 const framework_1 = require("@sapphire/framework");
+const IPersonal_1 = require("../../structures/client/message/IPersonal");
 const IButton_1 = require("../../structures/client/message/IButton");
 const IMessageEmbed_1 = require("../../structures/client/message/IMessageEmbed");
-let genderRolesEmbed = class genderRolesEmbed extends framework_1.Command {
+let MainPingRolesCommand = class MainPingRolesCommand extends framework_1.Command {
     messageRun(message) {
         return __awaiter(this, void 0, void 0, function* () {
             yield message.delete();
             const bot = this.container.client.user;
-            const ButtonsManager = new IButton_1.IButton(this.container.client);
-            const Male = ButtonsManager.createRole({
+            const ButtonManager = new IButton_1.IButton(this.container.client);
+            const GiveawayPing = ButtonManager.createRole({
                 color: "SECONDARY",
-                label: "Male",
-                role: "910146592911282246",
-                emoji: "♂️",
+                label: "Giveaway",
+                role: "910854269064843316",
+                emoji: "🎉",
             });
-            const Diam = ButtonsManager.createRole({
+            const PartnerPing = ButtonManager.createRole({
                 color: "SECONDARY",
-                label: "Memilih Diam",
-                role: "910153940778229760",
-                emoji: "🤫",
+                label: "GIID Partner",
+                role: "910169062510833704",
+                emoji: "🤝",
             });
-            return ButtonsManager.createButtons({
-                role: [Male, Diam],
-                content: new IMessageEmbed_1.IMessageEmbed()
-                    .setTitle(`・ ✦ — GIID GENDER ROLES`)
-                    .setDescription(`Silakan mengambil role sesuai gender kalian untuk menentukan siapa diri kalian.\n\n➭⠀ ♂️・<@&910146592911282246>\nRole untuk laki-laki pencari cinta sejati.\n\n➭⠀ 🤫・<@&910153940778229760>\nRole jika kalian ingin merahasiakan gender kalian.\n\nUntuk mendapatkan role <@&910146913351925780> silakan verifikasi diri anda kepada moderator <@&909783019601158194> atau <@&909440113006751765> yang sedang _online_ untuk mendapatkannya.\n\nDimohon untuk tidak spam agar tidak terjadi error yang tidak diinginkan.\n⠀`)
-                    .setColor('#A5D5EB'),
+            const ServerUpdatePing = ButtonManager.createRole({
+                color: "SECONDARY",
+                label: "Server Update",
+                role: "944916013617655850",
+                emoji: "📊"
+            });
+            const panel = new IMessageEmbed_1.IMessageEmbed()
+                .setTitle(`・ ✦ — GIID Main Ping Roles`)
+                .setDescription(`Silahkan mengambil role yang anda inginkan untuk mendapatkan notifikasi sesuai dengan role yang dipilih.\n\n➭⠀ 🎉 ・ <@&910854269064843316>\nPing untuk mendapatkan notifikasi __giveaway__.\n\n➭⠀ 🤝 ・ <@&910169062510833704>\nPing untuk mendapat notifikasi terkait Partnership Server Genshin Impact ID.\n\n➭⠀ 📊 ・ <@&944916013617655850>\nPing untuk mendapatkan notifikasi terkait perkembangan server.\n\nDimohon untuk tidak spam agar tidak terjadi error yang tidak diinginkan.\n⠀`);
+            panel.setFooter({ text: `${bot.username} - ${IPersonal_1.Aboutme.watermark}`, iconURL: bot.displayAvatarURL({ dynamic: true, size: 512 }) });
+            return ButtonManager.createButtons({
+                role: [PartnerPing, GiveawayPing, ServerUpdatePing],
+                content: panel,
                 channelId: message.channel.id,
             });
         });
     }
 };
-genderRolesEmbed = __decorate([
+MainPingRolesCommand = __decorate([
     (0, decorators_1.ApplyOptions)({
-        name: "genderRolesEmbed",
-        aliases: ['genderRole', 'genderRoles', 'genderrole', 'genderroles', 'genderrolesembed'],
+        name: "mainPingRolesEmbed",
+        aliases: ['mainpingRole', 'mainpingRoles', 'mainpingrole', 'mainpingroles', 'mainpingrolesembed'],
         description: ".",
         detailedDescription: ".",
         quotes: [],
         enabled: true,
         requiredUserPermissions: ["ADMINISTRATOR"],
     })
-], genderRolesEmbed);
-exports.default = genderRolesEmbed;
+], MainPingRolesCommand);
+exports.default = MainPingRolesCommand;

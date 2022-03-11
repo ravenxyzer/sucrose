@@ -1,8 +1,10 @@
-import { IMessageEmbed } from "../../structures/client/message/IMessageEmbed";
 import { ApplyOptions } from "@sapphire/decorators";
 import { Command, CommandOptions } from "@sapphire/framework";
-import { Message } from "discord.js";
+import { Aboutme } from "../../structures/client/message/IPersonal"
 import { IButton } from "../../structures/client/message/IButton";
+import { IMessageEmbed } from "../../structures/client/message/IMessageEmbed";
+import { Message } from "discord.js";
+
 
 @ApplyOptions<CommandOptions>({
     name: "genderRolesEmbed",
@@ -13,7 +15,7 @@ import { IButton } from "../../structures/client/message/IButton";
     enabled: true,
     requiredUserPermissions: ["ADMINISTRATOR"],
 })
-export default class ButtonsTestCommand extends Command {
+export default class GenderRolesCommand extends Command {
     public async messageRun(message: Message): Promise<Message> {
         await message.delete();
         const bot = this.container.client.user
@@ -33,12 +35,14 @@ export default class ButtonsTestCommand extends Command {
             emoji: "🤫",
         });
 
+        const panel = new IMessageEmbed()
+        .setTitle(`・ ✦ — GIID Gender Roles`)
+        .setDescription(`Silakan mengambil role sesuai gender kalian untuk menentukan siapa diri kalian.\n\n➭⠀ ♂️・<@&910146592911282246>\nRole untuk laki-laki pencari cinta sejati.\n\n➭⠀ 🤫・<@&910153940778229760>\nRole jika kalian ingin merahasiakan gender kalian.\n\nUntuk mendapatkan role <@&910146913351925780> silakan verifikasi diri anda kepada moderator <@&909783019601158194> atau <@&909440113006751765> yang sedang _online_ untuk mendapatkannya.\n\nDimohon untuk tidak spam agar tidak terjadi error yang tidak diinginkan.\n⠀`)
+        panel.setFooter({text: `${bot.username} - ${Aboutme.watermark}`, iconURL: bot.displayAvatarURL({dynamic: true, size: 512})})
+        
         return ButtonsManager.createButtons({
             role: [Male, Diam],
-            content: new IMessageEmbed()
-            .setTitle(`・ ✦ — GIID GENDER ROLES`)
-            .setDescription(`Silakan mengambil role sesuai gender kalian untuk menentukan siapa diri kalian.\n\n➭⠀ ♂️・<@&910146592911282246>\nRole untuk laki-laki pencari cinta sejati.\n\n➭⠀ 🤫・<@&910153940778229760>\nRole jika kalian ingin merahasiakan gender kalian.\n\nUntuk mendapatkan role <@&910146913351925780> silakan verifikasi diri anda kepada moderator <@&909783019601158194> atau <@&909440113006751765> yang sedang _online_ untuk mendapatkannya.\n\nDimohon untuk tidak spam agar tidak terjadi error yang tidak diinginkan.\n⠀`)
-            .setColor('#A5D5EB'),
+            content: panel,
             channelId: message.channel.id,
         });
     }

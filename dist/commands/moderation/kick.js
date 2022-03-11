@@ -38,6 +38,7 @@ class SayCommand extends framework_1.Command {
                     .setColor("GREEN")
                     .setTimestamp();
                 panel.setFooter({ text: `Kicked by ${message.author.username}`, iconURL: message.author.displayAvatarURL({ dynamic: true, size: 512 }) });
+                yield (yield member).kick();
                 return yield message.reply({ embeds: [panel] });
             }
         });

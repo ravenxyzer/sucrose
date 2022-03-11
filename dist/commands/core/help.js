@@ -21,9 +21,8 @@ class HelpCommand extends framework_1.Command {
             const panel = new discord_js_1.MessageEmbed()
                 .setTitle('・ ✦ — Sucrose Profile')
                 .setThumbnail(bot.displayAvatarURL({ dynamic: true, size: 512 }))
-                .setDescription(`Sucrose merupakan bot official dari server **Genshin Impact ID**. Gunakan perintah \`s.commands\` atau \`s.cmds\` untuk menampilkan perintah-perintah yang tersedia lainnya.`)
+                .setDescription(`Sucrose merupakan bot official dari server **Genshin Impact ID**.\nGunakan perintah \`s.commands\` atau \`s.cmds\` untuk menampilkan perintah-perintah yang tersedia lainnya.`)
                 .setColor('#A5D5EB');
-            panel.setFooter({ text: `${bot.username} - Developed by Zarr#2072`, iconURL: bot.displayAvatarURL({ dynamic: true, size: 512 }) });
             return yield message.reply({ embeds: [panel] });
         });
     }

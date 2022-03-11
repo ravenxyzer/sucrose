@@ -27,10 +27,7 @@ class StatusCommand extends framework_1.Command {
                 .setDescription(`**Client**: \`🔹 Online\` - \`${framework_1.container.client.ws.ping}ms\`\n**Uptime**: <t:${(uptime)}:R>\n**Database**: \`🔸 Disconnected\``)
                 .setColor('#A5D5EB');
             panel.setFooter({ text: `${bot.username} - Developed by Zarr#2072`, iconURL: bot.displayAvatarURL({ dynamic: true, size: 512 }) });
-            const response = yield message.channel.send({ embeds: [panel] });
-            return setTimeout(() => {
-                response.delete();
-            }, 1000 * 10);
+            return yield message.channel.send({ embeds: [panel] });
         });
     }
 }

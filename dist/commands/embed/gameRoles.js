@@ -15,54 +15,60 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const IMessageEmbed_1 = require("../../structures/client/message/IMessageEmbed");
 const decorators_1 = require("@sapphire/decorators");
 const framework_1 = require("@sapphire/framework");
-const ISelectMenu_1 = require("../../structures/client/message/ISelectMenu");
-let PingRolesEmbedCommand = class PingRolesEmbedCommand extends framework_1.Command {
+const IPersonal_1 = require("../../structures/client/message/IPersonal");
+const IButton_1 = require("../../structures/client/message/IButton");
+const IMessageEmbed_1 = require("../../structures/client/message/IMessageEmbed");
+let PingRolesCommand = class PingRolesCommand extends framework_1.Command {
     messageRun(message) {
         return __awaiter(this, void 0, void 0, function* () {
             yield message.delete();
             const bot = this.container.client.user;
-            const SelectMenuManager = new ISelectMenu_1.ISelectMenu(this.container.client);
-            const GenshinRole = SelectMenuManager.createRole({
-                label: "Genshin Impact",
+            const ButtonManager = new IButton_1.IButton(this.container.client);
+            const GenshinRole = ButtonManager.createRole({
+                color: "SECONDARY",
+                label: "",
                 role: "909622094814388254",
                 emoji: "<:Genshin_Impact:910879454631452692>",
             });
-            const HonkaiRole = SelectMenuManager.createRole({
-                label: "Honkai Impact 3rd",
+            const HonkaiRole = ButtonManager.createRole({
+                color: "SECONDARY",
+                label: "",
                 role: "909600627280187402",
                 emoji: "<:Honkai_Impact:910885561181552641>",
             });
-            const MobileLegendsRole = SelectMenuManager.createRole({
-                label: "Mobile Legends",
+            const MobileLegendsRole = ButtonManager.createRole({
+                color: "SECONDARY",
+                label: "",
                 role: "909600003197132821",
                 emoji: "<:Mobile_Legends:910879482854916097>",
             });
-            const ValorantRole = SelectMenuManager.createRole({
-                label: "Valorant",
+            const ValorantRole = ButtonManager.createRole({
+                color: "SECONDARY",
+                label: "",
                 role: "909600531431952434",
                 emoji: "<:Valorant:910886919464943641>",
             });
-            const MinecraftRole = SelectMenuManager.createRole({
-                label: "Minecraft",
+            const MinecraftRole = ButtonManager.createRole({
+                color: "SECONDARY",
+                label: "",
                 role: "909600734956359750",
                 emoji: "<:Minecraft:910887582378901555>",
             });
-            return SelectMenuManager.createMenus({
-                type: "SINGLE",
+            const panel = new IMessageEmbed_1.IMessageEmbed()
+                .setTitle(`・ ✦ — GIID Game Roles`)
+                .setDescription(`Silakan mengambil role yang anda inginkan untuk mendapatkan notifikasi sesuai dengan role yang dipilih.\n\n➭⠀ <:Genshin_Impact:910879454631452692> ・ <@&909622094814388254>\nPing untuk merekrut Party Genshin Impact\n\n➭⠀ <:Honkai_Impact:910885561181552641> ・ <@&909600627280187402>\nPing untuk pemain Honkai Impact 3rd\n\n➭⠀ <:Mobile_Legends:910879482854916097> ・ <@&909600003197132821>\nPing untuk pemain Mobile Legends : Bang Bang\n\n➭⠀ <:Valorant:910886919464943641> ・ <@&909600531431952434>\nPing untuk pemain Valorant\n\n➭⠀ <:Minecraft:910887582378901555> ・ <@&909600734956359750>\nPing untuk pemain Minecraft\n\nDimohon untuk tidak spam agar tidak terjadi error yang tidak diinginkan.\n⠀`);
+            panel.setFooter({ text: `${bot.username} - ${IPersonal_1.Aboutme.watermark}`, iconURL: bot.displayAvatarURL({ dynamic: true, size: 512 }) });
+            return ButtonManager.createButtons({
                 role: [GenshinRole, HonkaiRole, MobileLegendsRole, ValorantRole, MinecraftRole],
-                content: new IMessageEmbed_1.IMessageEmbed()
-                    .setTitle(`・ ✦ — GIID GAME ROLES`)
-                    .setColor("#A5D5EB")
-                    .setDescription(`Silakan mengambil role yang anda inginkan untuk mendapatkan notifikasi sesuai dengan role yang dipilih.\n\n➭⠀ <:Genshin_Impact:910879454631452692> ・ <@&909622094814388254>\nPing untuk merekrut Party Genshin Impact\n\n➭⠀ <:Honkai_Impact:910885561181552641> ・ <@&909600627280187402>\nPing untuk pemain Honkai Impact 3rd\n\n➭⠀ <:Mobile_Legends:910879482854916097> ・ <@&909600003197132821>\nPing untuk pemain Mobile Legends : Bang Bang\n\n➭⠀ <:Valorant:910886919464943641> ・ <@&909600531431952434>\nPing untuk pemain Valorant\n\n➭⠀ <:Minecraft:910887582378901555> ・ <@&909600734956359750>\nPing untuk pemain Minecraft\n\nDimohon untuk tidak spam agar tidak terjadi error yang tidak diinginkan.\n⠀`),
+                content: panel,
                 channelId: message.channel.id,
             });
         });
     }
 };
-PingRolesEmbedCommand = __decorate([
+PingRolesCommand = __decorate([
     (0, decorators_1.ApplyOptions)({
         name: "gameRolesEmbed",
         aliases: ['gameRole', 'gameRoles', 'gamerole', 'gameroles', 'gamerolesembed'],
@@ -72,5 +78,5 @@ PingRolesEmbedCommand = __decorate([
         enabled: true,
         requiredUserPermissions: ["ADMINISTRATOR"],
     })
-], PingRolesEmbedCommand);
-exports.default = PingRolesEmbedCommand;
+], PingRolesCommand);
+exports.default = PingRolesCommand;

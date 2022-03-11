@@ -17,9 +17,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const decorators_1 = require("@sapphire/decorators");
 const framework_1 = require("@sapphire/framework");
+const IPersonal_1 = require("../../structures/client/message/IPersonal");
 const IButton_1 = require("../../structures/client/message/IButton");
 const IMessageEmbed_1 = require("../../structures/client/message/IMessageEmbed");
-let colorRolesEmbedCommand = class colorRolesEmbedCommand extends framework_1.Command {
+let ColorRolesCommand = class ColorRolesCommand extends framework_1.Command {
     messageRun(message) {
         return __awaiter(this, void 0, void 0, function* () {
             yield message.delete();
@@ -49,30 +50,25 @@ let colorRolesEmbedCommand = class colorRolesEmbedCommand extends framework_1.Co
                 role: "909738531407159326",
                 emoji: "🟡",
             });
-            const Abendsonne = ButtonManager.createRole({
-                color: "SECONDARY",
-                label: "",
-                role: "909738728413626429",
-                emoji: "🟠",
-            });
             const Lavendel = ButtonManager.createRole({
                 color: "SECONDARY",
                 label: "",
                 role: "909739425045553153",
                 emoji: "🟣",
             });
+            const panel = new IMessageEmbed_1.IMessageEmbed()
+                .setTitle(`・ ✦ — GIID Color Roles`)
+                .setDescription(`Silakan mengambil role yang anda inginkan untuk memberi warna pada _nickname_ kalian.\n\n➭⠀ 🔵 ・ <@&909737734346780693>\n\n➭⠀ 🔴 ・ <@&909739014007963679>\n\n➭⠀ 🟢 ・ <@&909737967176806400>\n\n➭⠀ 🟡 ・ <@&909738531407159326>\n\n➭⠀ 🟣 ・ <@&909739425045553153>\n\nDimohon untuk tidak spam agar tidak terjadi error yang tidak diinginkan.\n⠀`);
+            panel.setFooter({ text: `${bot.username} - ${IPersonal_1.Aboutme.watermark}`, iconURL: bot.displayAvatarURL({ dynamic: true, size: 512 }) });
             return ButtonManager.createButtons({
-                role: [Meerblau, Witwenlippen, Pandanblätter, UnfruchtbaresLand, Abendsonne, Lavendel],
-                content: new IMessageEmbed_1.IMessageEmbed()
-                    .setTitle(`・ ✦ — GIID COLOR ROLES`)
-                    .setColor("#A5D5EB")
-                    .setDescription(`Silakan mengambil role yang anda inginkan untuk memberi warna pada _nickname_ kalian.\n\n➭⠀ 🔵 ・ <@&909737734346780693>\n\n➭⠀ 🔴 ・ <@&909739014007963679>\n\n➭⠀ 🟢 ・ <@&909737967176806400>\n\n➭⠀ 🟡 ・ <@&909738531407159326>\n\n➭⠀ 🟠 ・ <@&909738728413626429>\n\n➭⠀ 🟣 ・ <@&909739425045553153>\n\nDimohon untuk tidak spam agar tidak terjadi error yang tidak diinginkan.\n⠀`),
+                role: [Meerblau, Witwenlippen, Pandanblätter, UnfruchtbaresLand, Lavendel],
+                content: panel,
                 channelId: message.channel.id,
             });
         });
     }
 };
-colorRolesEmbedCommand = __decorate([
+ColorRolesCommand = __decorate([
     (0, decorators_1.ApplyOptions)({
         name: "colorRolesEmbed",
         aliases: ['colorRole', 'colorRoles', 'colorrole', 'colorroles', 'colorrolesembed'],
@@ -82,5 +78,5 @@ colorRolesEmbedCommand = __decorate([
         enabled: true,
         requiredUserPermissions: ["ADMINISTRATOR"],
     })
-], colorRolesEmbedCommand);
-exports.default = colorRolesEmbedCommand;
+], ColorRolesCommand);
+exports.default = ColorRolesCommand;

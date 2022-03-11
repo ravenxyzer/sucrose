@@ -38,6 +38,8 @@ export class SayCommand extends Command {
       .setColor("GREEN")
       .setTimestamp()
       panel.setFooter({text: `Kicked by ${message.author.username}`, iconURL: message.author.displayAvatarURL({dynamic: true, size: 512})})
+
+      await (await member).kick()
       return await message.reply({embeds: [panel]})
     }
   }
