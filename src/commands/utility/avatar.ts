@@ -1,7 +1,7 @@
 import { Args, Command } from '@sapphire/framework';
 import { Time } from '@sapphire/time-utilities';
 import { Aboutme } from "../../structures/client/message/IPersonal"
-import { Message, MessageEmbed, MessageActionRow } from 'discord.js';
+import { Message, MessageEmbed} from 'discord.js';
 
 export class AvatarCommand extends Command {
     public constructor(context: Command.Context, options: Command.Options) {
