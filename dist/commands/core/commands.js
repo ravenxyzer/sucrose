@@ -33,18 +33,6 @@ class CommandsCommand extends framework_1.Command {
                     .map((cmd) => (0, builders_1.inlineCode)(cmd.name))
                     .join(", ")
             }, {
-                name: '✧ **Embed**',
-                value: commands
-                    .filter((cmd) => cmd.category === "embed")
-                    .map((cmd) => (0, builders_1.inlineCode)(cmd.name))
-                    .join(", ")
-            }, {
-                name: '✧ **Moderation**',
-                value: commands
-                    .filter((cmd) => cmd.category === "moderation")
-                    .map((cmd) => (0, builders_1.inlineCode)(cmd.name))
-                    .join(", ")
-            }, {
                 name: '✧ **Utility**',
                 value: commands
                     .filter((cmd) => cmd.category === "utility")

@@ -4,7 +4,7 @@ import dotenv from 'dotenv'
 dotenv.config()
 
 const client = new SapphireClient({
-	defaultPrefix: 'l.',
+	defaultPrefix: 's.',
 	intents: [
 		'GUILDS',
 		'GUILD_MEMBERS',

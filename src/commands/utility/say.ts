@@ -1,7 +1,7 @@
 import { Args, Command } from '@sapphire/framework';
 import { Message, MessageEmbed } from 'discord.js';
 import { Time } from '@sapphire/time-utilities';
-import { Aboutme } from "../../structures/client/message/IPersonal";
+import { Aboutme } from "../../database/IDatabase"
 import fs from 'fs';
 
 export class SayCommand extends Command {

@@ -11,7 +11,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AvatarCommand = void 0;
 const framework_1 = require("@sapphire/framework");
-const IPersonal_1 = require("../../structures/client/message/IPersonal");
+const IDatabase_1 = require("../../database/IDatabase");
 const discord_js_1 = require("discord.js");
 class AvatarCommand extends framework_1.Command {
     constructor(context, options) {
@@ -29,7 +29,7 @@ class AvatarCommand extends framework_1.Command {
                 .setImage(user.displayAvatarURL({ dynamic: true, size: 4096 }))
                 //[Link](https://cdn.discordapp.com/avatars/${authId}/${authAv}'?size=4096)
                 .setColor('#A5D5EB');
-            panel.setFooter({ text: `${user.username} - ${IPersonal_1.Aboutme.watermark}`, iconURL: user.displayAvatarURL({ dynamic: true, size: 512 }) });
+            panel.setFooter({ text: `${user.username} - ${IDatabase_1.Aboutme.watermark}`, iconURL: user.displayAvatarURL({ dynamic: true, size: 512 }) });
             return yield message.reply({ embeds: [panel] });
         });
     }

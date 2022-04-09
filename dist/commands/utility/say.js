@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.SayCommand = void 0;
 const framework_1 = require("@sapphire/framework");
 const discord_js_1 = require("discord.js");
-const IPersonal_1 = require("../../structures/client/message/IPersonal");
+const IDatabase_1 = require("../../database/IDatabase");
 const fs_1 = __importDefault(require("fs"));
 class SayCommand extends framework_1.Command {
     constructor(context, options) {
@@ -38,7 +38,7 @@ class SayCommand extends framework_1.Command {
                         .setTitle(`・ ✦ — Say Logs`)
                         .setDescription(`${dataByLine}`)
                         .setColor("GREEN");
-                    panel.setFooter({ text: `${bot.username} - ${IPersonal_1.Aboutme.watermark}`, iconURL: bot.displayAvatarURL({ dynamic: true, size: 512 }) });
+                    panel.setFooter({ text: `${bot.username} - ${IDatabase_1.Aboutme.watermark}`, iconURL: bot.displayAvatarURL({ dynamic: true, size: 512 }) });
                     yield message.reply({ embeds: [panel] });
                 }));
             }
