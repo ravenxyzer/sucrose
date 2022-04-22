@@ -51,11 +51,12 @@ exports.Content = {
         },
         party: {
             title: "・ ✦ — Genshin Party",
-            description: ""
+            description: "",
+            error: "・ ✦ — Wrong Syntax\n```\nEkspektasi: <WL: Number> <UID: Number> <Description: Text>\nContoh: s.party 8 800909070 Weekly Boss\n```",
         },
         say: {
             title: "",
-            description: ""
+            description: "",
         }
     },
 };
@@ -84,5 +85,6 @@ exports.Aboutme = {
     tag: "Zarr#2072",
     id: "387886389800337409",
     discrimination: "#2072",
-    username: "Zarr"
+    username: "Zarr",
+    mention: `<@387886389800337409>`
 };

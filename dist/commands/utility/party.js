@@ -19,7 +19,7 @@ const decorators_1 = require("@sapphire/decorators");
 const framework_1 = require("@sapphire/framework");
 const IMessageEmbed_1 = require("../../structures/client/message/IMessageEmbed");
 const IDatabase_1 = require("../../database/IDatabase");
-let ColorRolesCommand = class ColorRolesCommand extends framework_1.Command {
+let EmbedCommand = class EmbedCommand extends framework_1.Command {
     messageRun(message, args) {
         return __awaiter(this, void 0, void 0, function* () {
             // s.party wl uid keterangan
@@ -28,37 +28,44 @@ let ColorRolesCommand = class ColorRolesCommand extends framework_1.Command {
             const wl = yield args.pick("integer").catch(() => "No_WL");
             const uid = yield args.pick("integer").catch(() => "No_UID");
             const desc = yield args.rest("string").catch(() => "No_Desc");
+            const errMessage = IDatabase_1.Content.utiltity.party.error;
             if ((yield wl) === "No_WL") {
-                return message.reply(`・ ✦ — Wrong Syntax\nExpected Arguments: \` <WL: Number> \` \` <UID: Number> \` \` <Description: Text> \``);
+                return message.reply(`${errMessage}`);
             }
             else if ((yield uid) === "No_UID") {
-                return message.reply(`・ ✦ — Wrong Syntax\nExpected Arguments: \` <UID: Number> \` \` <Description: Text> \``);
+                return message.reply(`${errMessage}`);
             }
             else if ((yield desc) === "No_Desc") {
-                return message.reply(`・ ✦ — Wrong Syntax\nExpected Arguments: \` <Description: Text> \``);
+                return message.reply(`${errMessage}`);
             }
             yield message.delete();
             const panel = new IMessageEmbed_1.IMessageEmbed()
                 .setTitle(`・ ✦ — Genshin Party`)
-                .setDescription(`**World Level**: ${yield wl.toString().substring(0, 1)}\n**UID**: ${yield uid.toString().substring(0, 9)}\n**Description**: ${yield desc}`);
-            panel.setThumbnail(user.displayAvatarURL({ dynamic: true, size: 512 }));
-            yield message.channel.send({ content: `Need Party!, Summon ${IDatabase_1.Role.GIID.genshinParty.tag}`, embeds: [panel] });
-            const helper = new IMessageEmbed_1.IMessageEmbed()
-                .setTitle(`・ ✦ — Genshin Party`)
-                .setDescription(`**Request by**: ${message.author.username}\n**Channel**: <#${message.channelId}>\n\n**World Level**: ${yield wl.toString().substring(0, 1)}\n**UID**: ${yield uid.toString().substring(0, 9)}\n**Description**: ${yield desc}`);
-            yield help_channel.send({ content: `Mohon dibantu\\🙏, ${IDatabase_1.Role.GIID.moderator.tag}`, embeds: [helper] });
+                .setDescription(`**World Level**: ${yield wl.toString().substring(0, 1)}\n**UID**: ${yield uid.toString().substring(0, 9)}\n**Description**: ${yield desc}`)
+                .setTimestamp()
+                .setThumbnail(user.displayAvatarURL({ dynamic: true, size: 512 }));
+            panel.setFooter({ text: `Requested by ${user.tag}`, iconURL: user.displayAvatarURL({ dynamic: true, size: 512 }) });
+            const response = yield message.channel.send({ content: `${user} Butuh party nih. \\📢 ${IDatabase_1.Role.GIID.genshinParty.tag}`, embeds: [panel] });
+            response.react("👍");
+            const help = new IMessageEmbed_1.IMessageEmbed()
+                .setTimestamp()
+                .setThumbnail(user.displayAvatarURL({ dynamic: true, size: 512 }))
+                .setDescription(`**World Level**: ${yield wl.toString().substring(0, 1)}\n**UID**: ${yield uid.toString().substring(0, 9)}\n**Description**: ${yield desc}\n\n**Request by**: <@${message.author.id}>\n**in Channel**: <#${message.channelId}>`);
+            help.setFooter({ text: `Requested by ${user.tag}`, iconURL: user.displayAvatarURL({ dynamic: true, size: 512 }) });
+            const helpMsg = yield help_channel.send({ content: `Tolong dibantu party-nya, \\📢 ${IDatabase_1.Role.GIID.giidStaff.tag}`, embeds: [help] });
+            helpMsg.react("👍");
             return;
         });
     }
 };
-ColorRolesCommand = __decorate([
+EmbedCommand = __decorate([
     (0, decorators_1.ApplyOptions)({
         name: "party",
         description: ".",
         detailedDescription: ".",
         quotes: [],
         enabled: true,
-        requiredUserPermissions: ["ADMINISTRATOR"],
+        cooldownDelay: 1000 /* Second */ * 5
     })
-], ColorRolesCommand);
-exports.default = ColorRolesCommand;
+], EmbedCommand);
+exports.default = EmbedCommand;
