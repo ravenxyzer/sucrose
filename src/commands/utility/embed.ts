@@ -26,7 +26,7 @@ export default class ColorRolesCommand extends Command {
         if (await option === null) {
             const reply = new MessageEmbed()
             .setTitle(`・ ✦ — Wrong Syntax!`)
-            .setDescription(`**Ekspektasi Argumen**: \` <opsi> \`\nGunakan perintah ***s.help*** untuk detail lebih lanjut.`)
+            .setDescription(`**Ekspektasi Argumen**: \` <opsi> \`\nGunakan perintah ***s.embed lists*** untuk detail lebih lanjut.`)
             .setColor("RED")
             return await message.reply({embeds: [reply]})
         } else if (option) {
@@ -148,7 +148,7 @@ export default class ColorRolesCommand extends Command {
                     content: panel,
                     channelId: message.channel.id,
                 });
-            } else if (id === "mainpingroles") {
+            } else if (id === "specialroles") {
                 await message.delete();
                 const ButtonManager = new IButton(this.container.client);
                 const GiveawayPing = ButtonManager.createRole({
@@ -182,7 +182,7 @@ export default class ColorRolesCommand extends Command {
                     content: panel,
                     channelId: message.channel.id,
                 });
-            } else if (id === "otherpingroles") {
+            } else if (id === "otherroles") {
                 await message.delete();
                 const bot = this.container.client.user
                 const ButtonManager = new IButton(this.container.client);
@@ -201,11 +201,11 @@ export default class ColorRolesCommand extends Command {
                     emoji: "🔥",
                 });
         
-                const SpiralAbyssPing = ButtonManager.createRole({
+                const FreeGamesPing = ButtonManager.createRole({
                     color: "SECONDARY",
                     label: "",
-                    role: "909621805986230302",
-                    emoji: "🛐",
+                    role: "993026893685211136",
+                    emoji: "🎮",
                 });
         
                 const VtuberPing = ButtonManager.createRole({
@@ -221,7 +221,7 @@ export default class ColorRolesCommand extends Command {
                 panel.setFooter({text: `${bot.username} - ${Aboutme.watermark}`, iconURL: bot.displayAvatarURL({dynamic: true, size: 512})})
         
                 return ButtonManager.createButtons({
-                    role: [AnimangaPing, ContentPing, SpiralAbyssPing, VtuberPing],
+                    role: [AnimangaPing, ContentPing, FreeGamesPing, VtuberPing],
                     content: panel,
                     channelId: message.channel.id,
                 });

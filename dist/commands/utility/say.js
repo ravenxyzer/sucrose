@@ -19,7 +19,7 @@ const IDatabase_1 = require("../../database/IDatabase");
 const fs_1 = __importDefault(require("fs"));
 class SayCommand extends framework_1.Command {
     constructor(context, options) {
-        super(context, Object.assign(Object.assign({}, options), { name: 'say', aliases: ['echo'], description: 'sends an message as the bot', requiredUserPermissions: ['MANAGE_MESSAGES'], cooldownDelay: 1000 /* Second */ * 1 }));
+        super(context, Object.assign(Object.assign({}, options), { name: 'say', aliases: ['echo'], description: 'sends an message as the bot', requiredUserPermissions: ['MANAGE_MESSAGES'], cooldownDelay: 1000 /* Time.Second */ * 1 }));
     }
     messageRun(message, args) {
         return __awaiter(this, void 0, void 0, function* () {

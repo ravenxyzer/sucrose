@@ -29,7 +29,7 @@ let ColorRolesCommand = class ColorRolesCommand extends framework_1.Command {
             if ((yield option) === null) {
                 const reply = new discord_js_1.MessageEmbed()
                     .setTitle(`・ ✦ — Wrong Syntax!`)
-                    .setDescription(`**Ekspektasi Argumen**: \` <opsi> \`\nGunakan perintah ***s.help*** untuk detail lebih lanjut.`)
+                    .setDescription(`**Ekspektasi Argumen**: \` <opsi> \`\nGunakan perintah ***s.embed lists*** untuk detail lebih lanjut.`)
                     .setColor("RED");
                 return yield message.reply({ embeds: [reply] });
             }
@@ -146,7 +146,7 @@ let ColorRolesCommand = class ColorRolesCommand extends framework_1.Command {
                         channelId: message.channel.id,
                     });
                 }
-                else if (id === "mainpingroles") {
+                else if (id === "specialroles") {
                     yield message.delete();
                     const ButtonManager = new IButton_1.IButton(this.container.client);
                     const GiveawayPing = ButtonManager.createRole({
@@ -177,7 +177,7 @@ let ColorRolesCommand = class ColorRolesCommand extends framework_1.Command {
                         channelId: message.channel.id,
                     });
                 }
-                else if (id === "otherpingroles") {
+                else if (id === "otherroles") {
                     yield message.delete();
                     const bot = this.container.client.user;
                     const ButtonManager = new IButton_1.IButton(this.container.client);
@@ -193,11 +193,11 @@ let ColorRolesCommand = class ColorRolesCommand extends framework_1.Command {
                         role: "910303931333238814",
                         emoji: "🔥",
                     });
-                    const SpiralAbyssPing = ButtonManager.createRole({
+                    const FreeGamesPing = ButtonManager.createRole({
                         color: "SECONDARY",
                         label: "",
-                        role: "909621805986230302",
-                        emoji: "🛐",
+                        role: "993026893685211136",
+                        emoji: "🎮",
                     });
                     const VtuberPing = ButtonManager.createRole({
                         color: "SECONDARY",
@@ -210,7 +210,7 @@ let ColorRolesCommand = class ColorRolesCommand extends framework_1.Command {
                         .setDescription(`${IDatabase_1.Content.utiltity.embed.otherPingRoles.description}`);
                     panel.setFooter({ text: `${bot.username} - ${IDatabase_1.Aboutme.watermark}`, iconURL: bot.displayAvatarURL({ dynamic: true, size: 512 }) });
                     return ButtonManager.createButtons({
-                        role: [AnimangaPing, ContentPing, SpiralAbyssPing, VtuberPing],
+                        role: [AnimangaPing, ContentPing, FreeGamesPing, VtuberPing],
                         content: panel,
                         channelId: message.channel.id,
                     });
@@ -236,7 +236,7 @@ ColorRolesCommand = __decorate([
         quotes: [],
         enabled: true,
         requiredUserPermissions: ["ADMINISTRATOR"],
-        cooldownDelay: 1000 /* Second */ * 5
+        cooldownDelay: 1000 /* Time.Second */ * 5
     })
 ], ColorRolesCommand);
 exports.default = ColorRolesCommand;

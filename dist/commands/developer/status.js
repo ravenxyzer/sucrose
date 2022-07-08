@@ -14,7 +14,7 @@ const framework_1 = require("@sapphire/framework");
 const discord_js_1 = require("discord.js");
 class StatusCommand extends framework_1.Command {
     constructor(context, options) {
-        super(context, Object.assign(Object.assign({}, options), { name: 'status', aliases: ['info'], description: 'sends client status', preconditions: ['OwnerOnly'], cooldownDelay: 1000 /* Second */ * 5 }));
+        super(context, Object.assign(Object.assign({}, options), { name: 'status', aliases: ['info'], description: 'sends client status', preconditions: ['OwnerOnly'], cooldownDelay: 1000 /* Time.Second */ * 5 }));
     }
     messageRun(message) {
         return __awaiter(this, void 0, void 0, function* () {

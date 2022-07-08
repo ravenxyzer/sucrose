@@ -15,7 +15,7 @@ const discord_js_1 = require("discord.js");
 const builders_1 = require("@discordjs/builders");
 class CommandsCommand extends framework_1.Command {
     constructor(context, options) {
-        super(context, Object.assign(Object.assign({}, options), { name: 'commands', aliases: ['cmds'], description: 'sends a command list', cooldownDelay: 1000 /* Second */ * 5 }));
+        super(context, Object.assign(Object.assign({}, options), { name: 'commands', aliases: ['cmds'], description: 'sends a command list', cooldownDelay: 1000 /* Time.Second */ * 5 }));
     }
     messageRun(message) {
         return __awaiter(this, void 0, void 0, function* () {

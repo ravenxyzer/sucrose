@@ -1,10 +1,9 @@
-import DJS from 'discord.js';
 import { SapphireClient } from '@sapphire/framework';
 import dotenv from 'dotenv'
 dotenv.config()
 
 const client = new SapphireClient({
-	defaultPrefix: 's.',
+	defaultPrefix: 't.',
 	intents: [
 		'GUILDS',
 		'GUILD_MEMBERS',

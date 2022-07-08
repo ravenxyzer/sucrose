@@ -15,7 +15,7 @@ const IDatabase_1 = require("../../database/IDatabase");
 const discord_js_1 = require("discord.js");
 class AvatarCommand extends framework_1.Command {
     constructor(context, options) {
-        super(context, Object.assign(Object.assign({}, options), { name: 'avatar', aliases: ['av'], description: 'Sends a user avatar image', cooldownDelay: 1000 /* Second */ * 5 }));
+        super(context, Object.assign(Object.assign({}, options), { name: 'avatar', aliases: ['av'], description: 'Sends a user avatar image', cooldownDelay: 1000 /* Time.Second */ * 5 }));
     }
     messageRun(message, args) {
         return __awaiter(this, void 0, void 0, function* () {
