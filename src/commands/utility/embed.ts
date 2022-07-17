@@ -31,7 +31,7 @@ export default class ColorRolesCommand extends Command {
             return await message.reply({embeds: [reply]})
         } else if (option) {
             const id = await option.toLowerCase()
-            if (id === "colorroles") {
+            if (id === "color") {
                 await message.delete()
                 const ButtonManager = new IButton(this.container.client);
                 const Meerblau = ButtonManager.createRole({
@@ -74,7 +74,7 @@ export default class ColorRolesCommand extends Command {
                     content: panel,
                     channelId: message.channel.id,
                 });
-            } else if (id === "gameroles") {
+            } else if (id === "game") {
                 await message.delete()
                 const ButtonManager = new IButton(this.container.client);
                 const ApexRole = ButtonManager.createRole({
@@ -121,7 +121,7 @@ export default class ColorRolesCommand extends Command {
                     content: panel,
                     channelId: message.channel.id,
                 });
-            } else if (id === "genderroles") {
+            } else if (id === "gender") {
                 await message.delete();
                 const ButtonsManager = new IButton(this.container.client);
                 const Male = ButtonsManager.createRole({
@@ -148,9 +148,17 @@ export default class ColorRolesCommand extends Command {
                     content: panel,
                     channelId: message.channel.id,
                 });
-            } else if (id === "specialroles") {
+            } else if (id === "special") {
                 await message.delete();
                 const ButtonManager = new IButton(this.container.client);
+
+                const ContentPing = ButtonManager.createRole({
+                    color: "SECONDARY",
+                    label: "",
+                    role: "910303931333238814",
+                    emoji: "🔥",
+                });
+
                 const GiveawayPing = ButtonManager.createRole({
                     color: "SECONDARY",
                     label: "",
@@ -178,13 +186,12 @@ export default class ColorRolesCommand extends Command {
                 panel.setFooter({text: `${bot.username} - ${Aboutme.watermark}`, iconURL: bot.displayAvatarURL({dynamic: true, size: 512})})
         
                 return ButtonManager.createButtons({
-                    role: [GiveawayPing, PartnerPing, ServerUpdatePing],
+                    role: [ContentPing, GiveawayPing, PartnerPing, ServerUpdatePing],
                     content: panel,
                     channelId: message.channel.id,
                 });
-            } else if (id === "otherroles") {
+            } else if (id === "other") {
                 await message.delete();
-                const bot = this.container.client.user
                 const ButtonManager = new IButton(this.container.client);
         
                 const AnimangaPing = ButtonManager.createRole({
@@ -193,14 +200,7 @@ export default class ColorRolesCommand extends Command {
                     role: "911193934053654538",
                     emoji: "🍥",
                 });
-        
-                const ContentPing = ButtonManager.createRole({
-                    color: "SECONDARY",
-                    label: "",
-                    role: "910303931333238814",
-                    emoji: "🔥",
-                });
-        
+
                 const FreeGamesPing = ButtonManager.createRole({
                     color: "SECONDARY",
                     label: "",
@@ -221,10 +221,11 @@ export default class ColorRolesCommand extends Command {
                 panel.setFooter({text: `${bot.username} - ${Aboutme.watermark}`, iconURL: bot.displayAvatarURL({dynamic: true, size: 512})})
         
                 return ButtonManager.createButtons({
-                    role: [AnimangaPing, ContentPing, FreeGamesPing, VtuberPing],
+                    role: [AnimangaPing, FreeGamesPing, VtuberPing],
                     content: panel,
                     channelId: message.channel.id,
                 });
+                
             } else if (id === "list") {
                 const panel = new IMessageEmbed()
                 .setTitle(`${Content.utiltity.embed.list.title}`)

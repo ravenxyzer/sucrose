@@ -35,7 +35,7 @@ let ColorRolesCommand = class ColorRolesCommand extends framework_1.Command {
             }
             else if (option) {
                 const id = yield option.toLowerCase();
-                if (id === "colorroles") {
+                if (id === "color") {
                     yield message.delete();
                     const ButtonManager = new IButton_1.IButton(this.container.client);
                     const Meerblau = ButtonManager.createRole({
@@ -78,7 +78,7 @@ let ColorRolesCommand = class ColorRolesCommand extends framework_1.Command {
                         channelId: message.channel.id,
                     });
                 }
-                else if (id === "gameroles") {
+                else if (id === "game") {
                     yield message.delete();
                     const ButtonManager = new IButton_1.IButton(this.container.client);
                     const ApexRole = ButtonManager.createRole({
@@ -121,7 +121,7 @@ let ColorRolesCommand = class ColorRolesCommand extends framework_1.Command {
                         channelId: message.channel.id,
                     });
                 }
-                else if (id === "genderroles") {
+                else if (id === "gender") {
                     yield message.delete();
                     const ButtonsManager = new IButton_1.IButton(this.container.client);
                     const Male = ButtonsManager.createRole({
@@ -146,9 +146,15 @@ let ColorRolesCommand = class ColorRolesCommand extends framework_1.Command {
                         channelId: message.channel.id,
                     });
                 }
-                else if (id === "specialroles") {
+                else if (id === "special") {
                     yield message.delete();
                     const ButtonManager = new IButton_1.IButton(this.container.client);
+                    const ContentPing = ButtonManager.createRole({
+                        color: "SECONDARY",
+                        label: "",
+                        role: "910303931333238814",
+                        emoji: "🔥",
+                    });
                     const GiveawayPing = ButtonManager.createRole({
                         color: "SECONDARY",
                         label: "",
@@ -172,26 +178,19 @@ let ColorRolesCommand = class ColorRolesCommand extends framework_1.Command {
                         .setDescription(`${IDatabase_1.Content.utiltity.embed.mainPingRoles.description}`);
                     panel.setFooter({ text: `${bot.username} - ${IDatabase_1.Aboutme.watermark}`, iconURL: bot.displayAvatarURL({ dynamic: true, size: 512 }) });
                     return ButtonManager.createButtons({
-                        role: [GiveawayPing, PartnerPing, ServerUpdatePing],
+                        role: [ContentPing, GiveawayPing, PartnerPing, ServerUpdatePing],
                         content: panel,
                         channelId: message.channel.id,
                     });
                 }
-                else if (id === "otherroles") {
+                else if (id === "other") {
                     yield message.delete();
-                    const bot = this.container.client.user;
                     const ButtonManager = new IButton_1.IButton(this.container.client);
                     const AnimangaPing = ButtonManager.createRole({
                         color: "SECONDARY",
                         label: "",
                         role: "911193934053654538",
                         emoji: "🍥",
-                    });
-                    const ContentPing = ButtonManager.createRole({
-                        color: "SECONDARY",
-                        label: "",
-                        role: "910303931333238814",
-                        emoji: "🔥",
                     });
                     const FreeGamesPing = ButtonManager.createRole({
                         color: "SECONDARY",
@@ -210,7 +209,7 @@ let ColorRolesCommand = class ColorRolesCommand extends framework_1.Command {
                         .setDescription(`${IDatabase_1.Content.utiltity.embed.otherPingRoles.description}`);
                     panel.setFooter({ text: `${bot.username} - ${IDatabase_1.Aboutme.watermark}`, iconURL: bot.displayAvatarURL({ dynamic: true, size: 512 }) });
                     return ButtonManager.createButtons({
-                        role: [AnimangaPing, ContentPing, FreeGamesPing, VtuberPing],
+                        role: [AnimangaPing, FreeGamesPing, VtuberPing],
                         content: panel,
                         channelId: message.channel.id,
                     });

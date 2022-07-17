@@ -38,15 +38,15 @@ exports.Content = {
             },
             mainPingRoles: {
                 title: "・ ✦ — GIID Special Roles",
-                description: "Silahkan mengambil role yang anda inginkan untuk mendapatkan notifikasi sesuai dengan role yang dipilih.\n\n➭⠀ 🎉 ・ <@&910854269064843316>\nPing untuk mendapatkan notifikasi _giveaway_.\n\n➭⠀ 🤝 ・ <@&910169062510833704>\nPing untuk mendapat notifikasi terkait Partnership Server Genshin Impact ID.\n\n➭⠀ 📊 ・ <@&944916013617655850>\nPing untuk mendapatkan notifikasi terkait perkembangan server.\n\nDimohon untuk tidak spam agar tidak terjadi error yang tidak diinginkan.",
+                description: "Silahkan mengambil role yang anda inginkan untuk mendapatkan notifikasi sesuai dengan role yang dipilih.\n\n➭⠀ 🔥 ・ <@&910303931333238814>\nPing untuk mendapat notifikasi konten terbaru dari Content Creator GIID\n\n➭⠀ 🎉 ・ <@&910854269064843316>\nPing untuk mendapatkan notifikasi _giveaway_.\n\n➭⠀ 🤝 ・ <@&910169062510833704>\nPing untuk mendapat notifikasi terkait Partnership Server Genshin Impact ID.\n\n➭⠀ 📊 ・ <@&944916013617655850>\nPing untuk mendapatkan notifikasi terkait perkembangan server.\n\nDimohon untuk tidak spam agar tidak terjadi error yang tidak diinginkan.",
             },
             otherPingRoles: {
                 title: "・ ✦ — GIID Other Roles",
-                description: "Silahkan mengambil role yang anda inginkan untuk mendapatkan notifikasi sesuai dengan role yang dipilih.\n\n➭⠀ 🍥 ・ <@&911193934053654538>\nPing untuk mendapatkan notifikasi terkait anime, manga, dan sejenisnya.\n\n➭⠀ 🔥 ・ <@&910303931333238814>\nPing untuk mendapat notifikasi konten terbaru dari Content Creator GIID\n\n➭⠀ 🎮 ・ <@&993026893685211136>\nPing untuk mendapatkan notifikasi terkait game gratis.\n\n➭⠀ 🐇 ・ <@&911837444708655194>\nPing untuk mendapatkan notifikasi terkait Virtual Youtubers\n\nDimohon untuk tidak spam agar tidak terjadi error yang tidak diinginkan."
+                description: "Silahkan mengambil role yang anda inginkan untuk mendapatkan notifikasi sesuai dengan role yang dipilih.\n\n➭⠀ 🍥 ・ <@&911193934053654538>\nPing untuk mendapatkan notifikasi terkait anime, manga, dan sejenisnya.\n\n➭⠀ 🎮 ・ <@&993026893685211136>\nPing untuk mendapatkan notifikasi terkait game gratis.\n\n➭⠀ 🐇 ・ <@&911837444708655194>\nPing untuk mendapatkan notifikasi terkait Virtual Youtubers\n\nDimohon untuk tidak spam agar tidak terjadi error yang tidak diinginkan."
             },
             list: {
                 title: "・ ✦ — Embed Options List",
-                description: "Berikut merupakan list opsi embed yang tersedia.\n\n➭⠀ColorRoles\n\n➭⠀GameRoles\n\n➭⠀GenderRoles\n\n➭⠀SpecialRoles\n\n➭⠀OtherRoles"
+                description: "Berikut merupakan list opsi embed yang tersedia.\n\n➭⠀Color\n\n➭⠀Game\n\n➭⠀Gender\n\n➭⠀Special\n\n➭⠀Other"
             },
         },
     },
