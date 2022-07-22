@@ -67,7 +67,7 @@ export default class ColorRolesCommand extends Command {
                 const panel = new IMessageEmbed()
                 .setTitle(`${Content.utiltity.embed.colorRoles.title}`)
                 .setDescription(`${Content.utiltity.embed.colorRoles.description}`)
-                panel.setFooter({text: `Created - ${Aboutme.watermark}`, iconURL: bot.displayAvatarURL({dynamic: true, size: 512})})
+                panel.setFooter({text: `${bot.username} - ${Aboutme.watermark}`, iconURL: bot.displayAvatarURL({dynamic: true, size: 512})})
 
                 return ButtonManager.createButtons({
                     role: [Meerblau, Witwenlippen, Pandanblätter, UnfruchtbaresLand, Lavendel],
@@ -225,14 +225,40 @@ export default class ColorRolesCommand extends Command {
                     content: panel,
                     channelId: message.channel.id,
                 });
+            } else if (id === "mudaehunter") {
+                await message.delete()
+                const ButtonManager = new IButton(this.container.client);
                 
+                const MudaeHunter = ButtonManager.createRole({
+                    color: "SECONDARY",
+                    label: "",
+                    role: "994932989144334336",
+                    emoji: "🃏"
+                })
+
+                const panel = new IMessageEmbed()
+                .setTitle(`${Content.utiltity.embed.mudaeHunter.title}`)
+                .setDescription(`${Content.utiltity.embed.mudaeHunter.description}`)
+                panel.setFooter({text: `${bot.username} - ${Aboutme.watermark}`, iconURL: bot.displayAvatarURL({dynamic: true, size: 512})})
+                
+                return ButtonManager.createButtons({
+                    role: [MudaeHunter],
+                    content: panel,
+                    channelId: message.channel.id,
+                })
+
             } else if (id === "list") {
                 const panel = new IMessageEmbed()
                 .setTitle(`${Content.utiltity.embed.list.title}`)
                 .setDescription(`${Content.utiltity.embed.list.description}`)
                 panel.setFooter({text: `${bot.username} - ${Aboutme.watermark}`, iconURL: bot.displayAvatarURL({dynamic: true, size: 512})})
                 await message.reply({embeds: [panel]})
-            } 
+            } else if (id === "mudaerules") {
+                const panel = new IMessageEmbed()
+                .setTitle(`${Content.utiltity.embed.mudaeRules.title}`)
+                .setDescription(`${Content.utiltity.embed.mudaeRules.description}`)
+                await message.reply({embeds: [panel]})
+            }
         }
         return;
     }

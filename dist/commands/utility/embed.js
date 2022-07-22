@@ -71,7 +71,7 @@ let ColorRolesCommand = class ColorRolesCommand extends framework_1.Command {
                     const panel = new IMessageEmbed_1.IMessageEmbed()
                         .setTitle(`${IDatabase_1.Content.utiltity.embed.colorRoles.title}`)
                         .setDescription(`${IDatabase_1.Content.utiltity.embed.colorRoles.description}`);
-                    panel.setFooter({ text: `Created - ${IDatabase_1.Aboutme.watermark}`, iconURL: bot.displayAvatarURL({ dynamic: true, size: 512 }) });
+                    panel.setFooter({ text: `${bot.username} - ${IDatabase_1.Aboutme.watermark}`, iconURL: bot.displayAvatarURL({ dynamic: true, size: 512 }) });
                     return ButtonManager.createButtons({
                         role: [Meerblau, Witwenlippen, Pandanblätter, UnfruchtbaresLand, Lavendel],
                         content: panel,
@@ -214,11 +214,36 @@ let ColorRolesCommand = class ColorRolesCommand extends framework_1.Command {
                         channelId: message.channel.id,
                     });
                 }
+                else if (id === "mudaehunter") {
+                    yield message.delete();
+                    const ButtonManager = new IButton_1.IButton(this.container.client);
+                    const MudaeHunter = ButtonManager.createRole({
+                        color: "SECONDARY",
+                        label: "",
+                        role: "994932989144334336",
+                        emoji: "🃏"
+                    });
+                    const panel = new IMessageEmbed_1.IMessageEmbed()
+                        .setTitle(`${IDatabase_1.Content.utiltity.embed.mudaeHunter.title}`)
+                        .setDescription(`${IDatabase_1.Content.utiltity.embed.mudaeHunter.description}`);
+                    panel.setFooter({ text: `${bot.username} - ${IDatabase_1.Aboutme.watermark}`, iconURL: bot.displayAvatarURL({ dynamic: true, size: 512 }) });
+                    return ButtonManager.createButtons({
+                        role: [MudaeHunter],
+                        content: panel,
+                        channelId: message.channel.id,
+                    });
+                }
                 else if (id === "list") {
                     const panel = new IMessageEmbed_1.IMessageEmbed()
                         .setTitle(`${IDatabase_1.Content.utiltity.embed.list.title}`)
                         .setDescription(`${IDatabase_1.Content.utiltity.embed.list.description}`);
                     panel.setFooter({ text: `${bot.username} - ${IDatabase_1.Aboutme.watermark}`, iconURL: bot.displayAvatarURL({ dynamic: true, size: 512 }) });
+                    yield message.reply({ embeds: [panel] });
+                }
+                else if (id === "mudaerules") {
+                    const panel = new IMessageEmbed_1.IMessageEmbed()
+                        .setTitle(`${IDatabase_1.Content.utiltity.embed.mudaeRules.title}`)
+                        .setDescription(`${IDatabase_1.Content.utiltity.embed.mudaeRules.description}`);
                     yield message.reply({ embeds: [panel] });
                 }
             }

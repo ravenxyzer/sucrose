@@ -7,7 +7,7 @@ const framework_1 = require("@sapphire/framework");
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
 const client = new framework_1.SapphireClient({
-    defaultPrefix: 't.',
+    defaultPrefix: "t.",
     intents: [
         'GUILDS',
         'GUILD_MEMBERS',
